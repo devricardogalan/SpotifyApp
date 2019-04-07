@@ -132,5 +132,10 @@
       }
     }
   },
-  "defaultProject": "Spotify-App"
+  "defaultProject": "Spotify-App",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
