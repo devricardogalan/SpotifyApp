@@ -1,66 +1,42 @@
+/* 
+  En un servicio puedo manejar mi data en un 
+  espacio global y luego hacer que los components
+  usen esa data desde diferentes puntos.
+
+*/
+
 import {Injectable} from '@angular/core';
-import {Http, Headers} from '@angular/http';
-import { environment } from '../../enviroments/enviroment';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+//import { environment } from '../../enviroments/enviroment';
+//el map ayuda a filtrar resultados
 import { map } from 'rxjs/operators';
 
 
 @Injectable()
 export class SpotifyService{
     private searchUrl: string;
-    private clientId: string = environment.clientId;
-    private clientSecret: string = environment.clientSecret;
 
-    constructor(private _http: Http){
+    constructor(private _http: HttpClient){
+      console.log('Funcionando...')
 
     }
 
-      // Get access token from Spotify to use API
-  getAuth = () => {
 
+    searchMusic(query: string){
+ 
+  this.searchUrl=`https://api.spotify.com/v1/${query}`;
+  
+  const headers=new HttpHeaders({
+    Authorization:
+    "Bearer BQDn5emrdty7AB7CLxy5VcbRRYpPAzNyVoyF7A0oNjrNQfvrt8UmfQ9mYvZv1yqoFGQ4Q49NcX9MGUTHrcA"
+  });
 
-    /*
-    app.use(function (req, res, next) {
+  return this._http.get(this.searchUrl, {headers});
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    // Pass to next layer of middleware
-    next();
-});
-    */
-
-    let headers = new Headers();
-    headers.append('Authorization', 'Basic ' + btoa(this.clientId + ":" + this.clientSecret));
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-  /*  headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    headers.append('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    headers.append('Access-Control-Allow-Credentials', true);
-*/
-
-
-    let params: URLSearchParams = new URLSearchParams();
-    params.set('grant_type', 'client_credentials');
-    let body = params.toString();
-
-    return this._http.post('https://accounts.spotify.com/api/token', body, { headers: headers })
-      .pipe(map(res => res.json()));
-
-  }
-
-    searchMusic(query: string, type='artist', authToken: string){
-        this.searchUrl = 'https://api.spotify.com/v1/search?query=' + query + '&offset=0&limit=20&type=' + type + '&market=US';
-        return this._http.get(this.searchUrl)
-            .pipe(map(res => res.json()));
-    }
+          }
+          getArtist(query: string) {
+            return this.searchMusic(`search?q=${query}&type=artist&limit=15`).pipe(
+              map(data => data["artists"].items)
+            );
+          }
 } 

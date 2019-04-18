@@ -10,6 +10,6 @@
 -->
 <h2 class="header">Welcome To FreeBird</h2>
 <div class="container">
-  <input type="text"  [formControl]="query" placeholder="Search...">
+  <input #query type="text" (keyup)="search(query.value)" class="form-control" placeholder="Search...">
   <div class="search"></div>
 </div>
