@@ -25,10 +25,11 @@ export class SearchBarComponent {
 
           search(query){
             console.log(query);
-            this._spotifyService.getArtist( query )
+            this._spotifyService.getArtists( query )
                   .subscribe( (data: any) => {
-                    console.log(data);
+                   // console.log(data);
                     this.artists = data;
+                    console.log(this.artists);
                   });
           }
           

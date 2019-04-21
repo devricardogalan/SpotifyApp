@@ -12,31 +12,42 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SpotifyService{
-    private searchUrl: string;
 
     constructor(private _http: HttpClient){
       console.log('Funcionando...')
 
     }
-
-
     searchMusic(query: string){
- 
-  this.searchUrl=`https://api.spotify.com/v1/${query}`;
+      debugger;
+      const searchUrl=`https://api.spotify.com/v1/${query}`;
   
   const headers=new HttpHeaders({
     Authorization:
-    "Bearer BQDn5emrdty7AB7CLxy5VcbRRYpPAzNyVoyF7A0oNjrNQfvrt8UmfQ9mYvZv1yqoFGQ4Q49NcX9MGUTHrcA"
+    "Bearer BQCUpeIR1OcufRCsixp8_7BMajYu9pzD20os0gzmf1JIAkxJcStFawBEVVS-Euv-o9aah499NxotObNgLvI"
   });
 
-  return this._http.get(this.searchUrl, {headers});
+  return this._http.get(searchUrl, {headers});
 
           }
-          getArtist(query: string) {
+          getArtists(query: string) {
             return this.searchMusic(`search?q=${query}&type=artist&limit=15`).pipe(
               map(data => data["artists"].items)
+            );
+          }
+
+          getArtist(id: string){
+            debugger;
+            return this.searchMusic(`artists/${id}`);
+          }
+
+          getTopTracks(id: string){
+            debugger;
+            return this.searchMusic(`artists/${id}/top-tracks?country=us`).pipe(
+              map(data=> data["tracks"])
             );
           }
 } 

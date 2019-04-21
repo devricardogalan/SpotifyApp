@@ -1,0 +1,22 @@
+<div class="container-card">
+<div (click)="viewArtist( item )" *ngFor="let item of items" class="card">
+        <div class="card__image-container">
+        <img class="card__image" [src]="item.images | noimage" >
+        </div>
+       <!-- <svg class="card__svg" viewBox="0 0 800 500">
+
+                <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
+                <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
+        </svg> -->
+
+        <div class="card__content">
+                <h1 class="card__title">{{ item.name }}</h1>
+            <p class="card-text">
+                <span *ngFor="let artist of item.artists" class="badge badge-pill badge-primary">
+                    {{ artist.name }}
+                </span>
+            </p>
+        </div>
+    </div>
+
+</div>

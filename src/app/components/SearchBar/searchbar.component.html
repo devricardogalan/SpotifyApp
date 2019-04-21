@@ -13,3 +13,7 @@
   <input #query type="text" (keyup)="search(query.value)" class="form-control" placeholder="Search...">
   <div class="search"></div>
 </div>
+
+<app-loading class="m-5" *ngIf="loading"></app-loading>
+
+<app-cards *ngIf="!loading" [items]="artists"></app-cards>

@@ -1,0 +1,68 @@
+<!--<app-loading *ngIf="loadingArtist"></app-loading>-->
+<app-loading *ngIf="loadingArtist"></app-loading>
+<div  *ngIf="!loadingArtist">
+  <div >
+   <!-- <img [src]="artista.images | noimage" class="img-thumbnail img-circle" /> -->
+   <img [src]="artist.images | noimage">
+  </div>
+  <div>
+    <h3>{{ artist.name }}</h3>
+    <p>
+      <a [href]="artist.external_urls.spotify" target="_blank">
+        <button >
+          Go to the artist site
+        </button>
+      </a>
+    </p>
+  </div>
+
+  <div>
+    <button routerLink="/search">
+      Regresar
+    </button>
+  </div>
+</div>
+
+<div >
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Album</th>
+          <th>Song</th>
+          <th>Preview</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let track of topTracks">
+          <td>
+            <img [src]="track.album.images | noimage" class="img-thumb" />
+          </td>
+          <td>{{ track.album.name }}</td>
+          <td>{{ track.name }}</td>
+          <td>
+        <!--    <iframe
+              [src]="track.uri | domseguro"
+              width="320"
+              height="90"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+        -->
+        <iframe
+              [src]="track.uri | domsanitizer"
+              width="320"
+              height="90"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
