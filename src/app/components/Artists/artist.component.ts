@@ -17,7 +17,8 @@ export class ArtistComponent{
     loadingArtist: boolean;
 
     constructor( private router: ActivatedRoute,
-                 private spotify: SpotifyService ){
+                 private spotify: SpotifyService,
+                 private _router: Router ){
 
                     this.loadingArtist=true;
 
@@ -55,5 +56,17 @@ export class ArtistComponent{
                 this.albums=albums;
                 console.log(albums);
             } )
+    }
+
+    viewAlbum(album: any){
+        let albumId;
+        debugger;
+        if ( album.type === 'album' ) {
+          albumId = album.id;
+        } else {
+          albumId = album.album[0].id;
+        }
+    
+        this._router.navigate([ '/album', albumId  ]);
     }
 }

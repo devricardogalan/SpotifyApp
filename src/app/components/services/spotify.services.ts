@@ -18,7 +18,6 @@ import { map } from 'rxjs/operators';
 export class SpotifyService{
 
     constructor(private _http: HttpClient){
-      console.log('Funcionando...')
 
     }
     searchMusic(query: string){
@@ -27,7 +26,7 @@ export class SpotifyService{
   
   const headers=new HttpHeaders({
     Authorization:
-    "Bearer BQCmQCzZjWBhh7aebDE5S3uPfpwm3VgUwgTk4dXuNtKIh05wKcxsQvo61cC0CvMQXHkmWt7t66h6qZzdCgY"
+    "Bearer BQCBGZ9wPpTppABoH8fRoyFKSaL8x1sPSaS8tdg4iD_N66P2CObjUk0pn4Ld22h0SdrzlD2mWHvwukJzBGc"
   });
 
   return this._http.get(searchUrl, {headers});
@@ -54,6 +53,18 @@ export class SpotifyService{
           getAlbums(id:string){
             debugger;
             return this.searchMusic(`artists/${id}/albums`).pipe(
+              map(data=> data["items"])
+            );
+          }
+
+          getAlbum( id:string ){
+            debugger;
+            return this.searchMusic(`albums/${id}`);
+          }
+
+          getAlbumsTracks(id:string){
+            debugger;
+            return this.searchMusic(`albums/${id}/tracks`).pipe(
               map(data=> data["items"])
             );
           }

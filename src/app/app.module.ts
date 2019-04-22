@@ -16,6 +16,7 @@ import { NoImagePipe } from './pipes/noimage.pipe';
 import { DomSanitizerPipe } from './pipes/domsanitizer.pipe'
 import { CardsComponent } from './components/cards/cards.component';
 import {RouterModule} from '@angular/router';
+import { AlbumComponent } from './components/Albums/albums.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,12 @@ import {RouterModule} from '@angular/router';
     LoadingComponent,
     NoImagePipe,
     CardsComponent,
-    DomSanitizerPipe
+    DomSanitizerPipe,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+  //  AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
    // HttpModule
