@@ -30,28 +30,15 @@
         <tr>
           <th>Photo</th>
           <th>Album</th>
-<!--          <th>Song</th>
-          <th>Preview</th>  -->
         </tr>
       </thead>
 
       <tbody>
         <tr *ngFor="let album of albums">
           <td >
-            <img (click)="viewAlbum( album )" [src]="album.images | noimage" class="img-thumb" />
+            <img (click)="viewAlbum( album )" [src]="album.images | noimage"/>
           </td>
           <td>{{ album.name }}</td>
-<!--          <td>{{ track.name }}</td>
-          <td>
-        <iframe
-              [src]="track.uri | domsanitizer"
-              width="320"
-              height="90"
-              frameborder="0"
-              allowtransparency="true"
-              allow="encrypted-media"
-            ></iframe>
-          </td> -->
         </tr>
       </tbody>
     </table>

@@ -46,19 +46,7 @@ export class AlbumComponent{
             debugger;
             console.log(track);
         }
- /*   
-        viewAlbum(album: any){
-            let albumId;
-            debugger;
-            if ( album.type === 'album' ) {
-              albumId = album.id;
-            } else {
-              albumId = album.album[0].id;
-            }
-        
-            this._router.navigate([ '/album', albumId  ]);
-        }
-*/
+
     }
 
 
