@@ -30,28 +30,19 @@
         <tr>
           <th>Photo</th>
           <th>Album</th>
-          <th>Song</th>
-          <th>Preview</th>
+<!--          <th>Song</th>
+          <th>Preview</th>  -->
         </tr>
       </thead>
 
       <tbody>
-        <tr *ngFor="let track of topTracks">
+        <tr *ngFor="let album of albums">
           <td>
-            <img [src]="track.album.images | noimage" class="img-thumb" />
+            <img [src]="album.images | noimage" class="img-thumb" />
           </td>
-          <td>{{ track.album.name }}</td>
-          <td>{{ track.name }}</td>
+          <td>{{ album.name }}</td>
+<!--          <td>{{ track.name }}</td>
           <td>
-        <!--    <iframe
-              [src]="track.uri | domseguro"
-              width="320"
-              height="90"
-              frameborder="0"
-              allowtransparency="true"
-              allow="encrypted-media"
-            ></iframe>
-        -->
         <iframe
               [src]="track.uri | domsanitizer"
               width="320"
@@ -60,7 +51,7 @@
               allowtransparency="true"
               allow="encrypted-media"
             ></iframe>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>
