@@ -1,15 +1,17 @@
-<div class="container-card">
-<div (click)="viewArtist( item )" *ngFor="let item of items" class="card">
+<div class="container-card row">
+
+   
+<div (click)="viewArtist( item )" *ngFor="let item of items" class="card column ">
         <div class="card__image-container">
         <img class="card__image" [src]="item.images | noimage" >
         </div>
 
         <div class="card__content">
                 <h1 class="card__title">{{ item.name }}</h1>
-            <p class="card-text">
-                <span *ngFor="let artist of item.artists" class="badge badge-pill badge-primary">
+            <p>
+             <!--   <span *ngFor="let artist of item.artists" class="badge badge-pill badge-primary">
                     {{ artist.name }}
-                </span>
+                </span> -->
             </p>
         </div>
     </div>

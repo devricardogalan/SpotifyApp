@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component ({
     selector: 'app-artist',
     templateUrl: './artist.component.html',
-    styleUrls: [] 
+    styleUrls: ['./artist.component.scss'] 
 })
 
 export class ArtistComponent{

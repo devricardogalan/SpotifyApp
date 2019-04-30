@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component} from '@angular/core';
 import { AlbumComponent } from '../albums.component';
 
 @Component({
@@ -8,12 +8,7 @@ import { AlbumComponent } from '../albums.component';
 })
 
 export class PlaylistComponent extends AlbumComponent{
-    
-    
-    super( router, spotify,_router){  
-        this.addToPlaylist ;        
-    } 
-            
-    
-   
+    super(router, spotify, _router, track){
+        debugger;
+    }
 }

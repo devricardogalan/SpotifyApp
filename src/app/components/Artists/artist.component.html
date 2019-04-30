@@ -3,21 +3,21 @@
 <div  *ngIf="!loadingArtist">
   <div >
    <!-- <img [src]="artista.images | noimage" class="img-thumbnail img-circle" /> -->
-   <img [src]="artist.images | noimage">
+   <img [src]="artist.images | noimage" class="img-thumb-size">
   </div>
   <div>
-    <h3>{{ artist.name }}</h3>
+    <h3 class="styled-text">{{ artist.name }}</h3>
     <p>
       <a [href]="artist.external_urls.spotify" target="_blank">
-        <button >
+      <button class="myButton">
           Go to the artist site
-        </button>
+        </button> 
       </a>
     </p>
   </div>
 
   <div>
-    <button routerLink="/search">
+    <button class="buttonRegresar" routerLink="/search">
       Regresar
     </button>
   </div>
@@ -28,8 +28,10 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Photo</th>
-          <th>Album</th>
+          <th class="styled-tableheader">Photo</th>
+          <th class="styled-tableheader">Album</th>
+<!--          <th>Song</th>
+          <th>Preview</th>  -->
         </tr>
       </thead>
 
@@ -38,7 +40,18 @@
           <td >
             <img (click)="viewAlbum( album )" [src]="album.images | noimage"/>
           </td>
-          <td>{{ album.name }}</td>
+          <td class="styled-tablecontent">{{ album.name }}</td>
+<!--          <td>{{ track.name }}</td>
+          <td>
+        <iframe
+              [src]="track.uri | domsanitizer"
+              width="320"
+              height="90"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            ></iframe>
+          </td> -->
         </tr>
       </tbody>
     </table>

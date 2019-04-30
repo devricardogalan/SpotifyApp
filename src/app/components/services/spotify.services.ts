@@ -9,7 +9,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 //import { environment } from '../../enviroments/enviroment';
 //el map ayuda a filtrar resultados
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -20,19 +20,24 @@ export class SpotifyService{
     constructor(private _http: HttpClient){
 
     }
+    
     searchMusic(query: string){
-      debugger;
       const searchUrl=`https://api.spotify.com/v1/${query}`;
+
+      
   
-  const headers=new HttpHeaders({
-    Authorization:
-    "Bearer BQCBGZ9wPpTppABoH8fRoyFKSaL8x1sPSaS8tdg4iD_N66P2CObjUk0pn4Ld22h0SdrzlD2mWHvwukJzBGc"
-  });
+      const headers=new HttpHeaders({
+        Authorization:
+        "Bearer BQAyHKpUxXewRSqZchwDfgc6kixRiQg3m6jNU_emhJk0PrxXeKul_yiYh7wkNmlFftnMb-0QGwBQ1gROOiI"
+      });
 
-  return this._http.get(searchUrl, {headers});
+      return this._http.get(searchUrl, {headers});
 
-          }
+    }
+
+
           getArtists(query: string) {
+            debugger;
             return this.searchMusic(`search?q=${query}&type=artist&limit=15`).pipe(
               map(data => data["artists"].items)
             );
@@ -68,4 +73,5 @@ export class SpotifyService{
               map(data=> data["items"])
             );
           }
+
 } 

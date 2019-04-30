@@ -1,7 +1,7 @@
-<div class='container'>
+<div class='container header'>
 
     <div id="navigation-bar">
-      <nav>
+      <nav class="navbar">
             
         <ul>
           <li><i class="fas fa-sliders-h"></i></li>
@@ -9,6 +9,13 @@
           <li><a routerLink="/about">About</a></li>
           <li><a href=#>Contact</a></li>
           <a href="#" id="menu-icon"></a>
+          <form autocomplete="off" action="" class="search-container"> 
+              <div class="autocomplete">
+            <input #query id="myInput" name="artists" type="text" (keyup)="search(query.value, $event)" class="text search-bar" placeholder="Search for an artist" />
+            <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+            </div>    
+          </form>
         </ul>
+
       </nav>
     </div>
