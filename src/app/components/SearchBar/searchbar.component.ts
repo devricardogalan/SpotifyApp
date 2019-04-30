@@ -13,7 +13,7 @@ import {SpotifyService} from '../services/spotify.services'
 
 export class SearchBarComponent {
     searchString: string;
-    results: string[];
+    results: any[]=[];
     artists: any[]=[];
     loading: boolean;
     tracks: any []=[];
@@ -27,9 +27,10 @@ export class SearchBarComponent {
             console.log(query);
             this._spotifyService.getArtists( query )
                   .subscribe( (data: any) => {
+                    debugger;
+                  //  this.artists=data;
                     this.artists = data;
-                    console.log(this.artists);
+                  // console.log(this.artists);
                   });
           }
-          
 }

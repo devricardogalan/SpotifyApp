@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class CardsComponent {
 
     @Input() items: any[]=[];
-
     constructor(private router: Router){}
 
     viewArtist(item:any){

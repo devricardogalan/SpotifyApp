@@ -3,18 +3,20 @@
     <div id="navigation-bar">
       <nav class="navbar">
             
-        <ul>
-          <li><i class="fas fa-sliders-h"></i></li>
-          <li><a routerLink="/home">Home</a></li>
-          <li><a routerLink="/about">About</a></li>
-          <li><a href=#>Contact</a></li>
+        <ul class="menu-ul">
+          <li class="menu-li"><i class="fas fa-sliders-h"></i></li>
+          <li class="menu-li"><a routerLink="/home">Home</a></li>
+          <li class="menu-li"><a routerLink="/about">About</a></li>
+          <li class="menu-li"><a href=#>Contact</a></li>
           <a href="#" id="menu-icon"></a>
-          <form autocomplete="off" action="" class="search-container"> 
-              <div class="autocomplete">
-            <input #query id="myInput" name="artists" type="text" (keyup)="search(query.value, $event)" class="text search-bar" placeholder="Search for an artist" />
-            <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-            </div>    
-          </form>
+          <section class="filter-wrapper">
+            <div class="keyword-wrapper">
+           <input [formControl]="queryField" type="text" id="keyword" placeholder="Search for artists..." autofocus/>
+             </div>
+           <ul class="filter-select">
+             <li *ngFor="let result of results" class="filter-select-list"><p class="artist-name">{{result.name}}</p></li>
+           </ul>
+           </section>
         </ul>
 
       </nav>

@@ -1,12 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+
 body{
     background: url(/assets/public/images/96545.jpg) center center fixed no-repeat;
     background-size: cover;
     height: 100%;
 }
 
-.searchBar{
-    position:absolute;
-    top:40%;
-    left:40%;
-  }

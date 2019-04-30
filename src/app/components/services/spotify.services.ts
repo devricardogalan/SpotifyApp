@@ -10,6 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 //import { environment } from '../../enviroments/enviroment';
 //el map ayuda a filtrar resultados
 import { map, switchMap } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
 
 
 @Injectable({
@@ -22,13 +23,14 @@ export class SpotifyService{
     }
     
     searchMusic(query: string){
+      debugger;
       const searchUrl=`https://api.spotify.com/v1/${query}`;
 
       
   
       const headers=new HttpHeaders({
         Authorization:
-        "Bearer BQAyHKpUxXewRSqZchwDfgc6kixRiQg3m6jNU_emhJk0PrxXeKul_yiYh7wkNmlFftnMb-0QGwBQ1gROOiI"
+        "Bearer BQB3mrgzfa_RfxIw8y2cw0yApgB1_97FYzz5lSpIrNACdRGFs3p_TrEXDOcArs8NzEVvmk5W1lTe4q0xZks"
       });
 
       return this._http.get(searchUrl, {headers});
@@ -37,10 +39,11 @@ export class SpotifyService{
 
 
           getArtists(query: string) {
-            debugger;
+            debugger
             return this.searchMusic(`search?q=${query}&type=artist&limit=15`).pipe(
               map(data => data["artists"].items)
-            );
+              );
+            
           }
 
           getArtist(id: string){
