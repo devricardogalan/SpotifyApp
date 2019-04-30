@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+.img-thumb-size {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+		width: 300px; /* Set a small width */
+		position:relative;
+		margin-top:5%;
+  } 
+
+  .styled-text{
+	font-family: "Roboto", sans-serif;
+	font-size: 50px;
+	color:white;
+}
+
+.styled-tableheader{
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	color:white;
+}
+
+.styled-tablecontent{
+	font-family: "Roboto", sans-serif;
+	font-size: 20px;
+	color:white;
+  text-align: center;
+}
+
+.table{
+    width:70%; 
+margin-left:15%; 
+margin-right:15%;
+}
+
+.buttonRegresar {
+	background-color:#CB3E3E;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #CB3E3E;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #662727;
+}
+.buttonRegresar:hover {
+	background-color:#bb3624;
+}
+.buttonRegresar:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton {
+	background-color:#44c767;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

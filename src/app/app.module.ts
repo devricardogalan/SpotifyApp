@@ -1,6 +1,15 @@
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+
+  MatIconModule, MatInputModule,
+  MatAutocompleteModule, MatChipsModule,
+  MatFormFieldModule
+
+
+} from '@angular/material';
 //import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +26,9 @@ import { DomSanitizerPipe } from './pipes/domsanitizer.pipe'
 import { CardsComponent } from './components/cards/cards.component';
 import {RouterModule} from '@angular/router';
 import { AlbumComponent } from './components/Albums/albums.component';
+import { FavTracksComponent } from './components/FavTracks/favtracks.component'
+import { PlaylistComponent } from './components/Albums/Playlist/playlist.component';
+import { AngularWebStorageModule } from 'angular-web-storage';
 
 @NgModule({
   declarations: [
@@ -29,7 +41,10 @@ import { AlbumComponent } from './components/Albums/albums.component';
     NoImagePipe,
     CardsComponent,
     DomSanitizerPipe,
-    AlbumComponent
+    AlbumComponent,
+    FavTracksComponent
+   // PlaylistComponent
+  //  AngularWebStorageModule
   ],
   imports: [
     BrowserModule,

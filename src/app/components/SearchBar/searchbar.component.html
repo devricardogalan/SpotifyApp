@@ -10,10 +10,15 @@
 -->
 <h2 class="header">Welcome To FreeBird</h2>
 <div class="container">
-  <input #query type="text" (keyup)="search(query.value)" class="form-control" placeholder="Search...">
+  <input #query id="inputbar" type="text" (keyup)="search(query.value)" class="form-control" placeholder="Search...">
   <div class="search"></div>
 </div>
 
+<app-favtracks></app-favtracks>
+
+
 <app-loading class="m-5" *ngIf="loading"></app-loading>
+
+
 
 <app-cards *ngIf="!loading" [items]="artists"></app-cards>
