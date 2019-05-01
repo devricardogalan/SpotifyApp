@@ -11,13 +11,14 @@
           <a href="#" id="menu-icon"></a>
           <section class="filter-wrapper">
             <div class="keyword-wrapper">
-           <input [formControl]="queryField" type="text" id="keyword" placeholder="Search for artists..." autofocus/>
+           <input class="input-navbar" [formControl]="queryField" (keyup)='search()' type="text" id="keyword" placeholder="Search for artists..." autofocus/>
              </div>
            <ul class="filter-select">
-             <li *ngFor="let result of results" class="filter-select-list"><p class="artist-name">{{result.name}}</p></li>
+             <li  (click)="viewArtist( result )"  *ngFor="let result of results" [ngClass]="this.queryField.value=='' ? 'filter-select-list-notvisible' : 'filter-select-list-visible'" class="filter-select-list"><p  class="artist-name">{{result.name}}</p></li>
            </ul>
            </section>
         </ul>
 
       </nav>
     </div>
+</div>    

@@ -1,9 +1,10 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component,  OnInit, Input } from '@angular/core';
 import {SpotifyService} from '../services/spotify.services';
 import { switchMap } from 'rxjs/operators';
 import {FormControl} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
 import {distinctUntilChanged} from 'rxjs/operators';
+import { Router } from '@angular/router'; 
 
 @Component({
     moduleId: module.id,
@@ -14,35 +15,44 @@ import {distinctUntilChanged} from 'rxjs/operators';
 
 export class NavbarComponent implements OnInit {
 
+  @Input() items: any[]=[];
+
     searchString: string;
     results: any[] = [];
     queryField: FormControl = new FormControl();
     artists: any[]=[];
     loading: boolean;
-    constructor(private _spotifyService:SpotifyService){
+    constructor(private _spotifyService:SpotifyService, private router:Router){
 
     }
     ngOnInit(){
       debugger;
-      this.queryField.valueChanges
-      .pipe(debounceTime(200),
-       distinctUntilChanged(),
-       switchMap((query) =>  this._spotifyService.getArtists(query)))
-      .subscribe(  result => { if (result.status === 400) { return; } else { this.results = result }
-    });
+
      
     }
 
- search(query, e){
-    console.log(query);
-    debugger;
-    this._spotifyService.getArtists( query )
-          .subscribe( (data: any) => {
-            debugger;
-           // console.log(data);
-            this.artists = data;
-            console.log(this.artists);
-          });
+    viewArtist(item:any){
+      debugger;
+      let artistId;
+    
+      if ( item.type === 'artist' ) {
+        artistId = item.id;
+      } else {
+        artistId = item.artists[0].id;
+      }
+      
+      this.router.navigate([ '/artist', artistId  ]);
+  
+    }
+
+ search(){
+   debugger;
+  this.queryField.valueChanges
+  .pipe(debounceTime(200),
+   distinctUntilChanged(),
+   switchMap((query) =>  this._spotifyService.getArtists(query)))
+  .subscribe(  result => { if (result.status === 400) { return; } else { this.results = result }
+});
     
       //    this.autocomplete(document.getElementById("myInput"), this.artists, e);
   }

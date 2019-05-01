@@ -18,7 +18,6 @@ $text: #424242;
 
 /** NAVIGATION BAR */
 nav {
-  overflow: hidden;
   background-color: rgb(102, 103, 104);
   position: fixed;
   top: 0;
@@ -26,10 +25,8 @@ nav {
   z-index: 10;
   .menu-ul {
     text-align: center;
-  //  list-style-type: none;
-  //  list-style-type: none;
     margin: 0;
-    padding: 15px;
+    padding: 30px;
     .menu-li {
       display: inline;
       font-family: "Fira Sans", sans-serif;
@@ -60,11 +57,54 @@ nav {
 }
 
 
+.filter-select{
+  background: white;
+  list-style: none;
+  padding:0;
+  overflow:hidden;
+  overflow-y: auto;
+  max-height:70px;
+  position:absolute;
+  right:3.5%;
+  top:85%;
+  max-width:169px;
 
+}
 
+.artist-name{
+  display:inline-block;
+  padding-bottom: 5px;
+  color:black;
+}
+
+.input-navbar{
+  position: absolute;
+  top: 7%;
+  right:2%;
+  height:40px;
+  border-top-right-radius:20px;
+  border-bottom-right-radius: 20px;
+  border:1px solid gray;
+  border-left:0;
+  padding:10px
+}
+
+.filter-select-list-notvisible{
+  display:none;
+}
+
+.filter-select-list-visible{
+  display:visible;
+}
+
+.filter-select-list:hover {
+  background-color: #c6c6c6;
+}
+
+/*
 .filter-wrapper,
 .keyword-wrapper {
-  display: flex;
+ display: flex;
   justify-content: center;
 }
 
@@ -110,12 +150,12 @@ nav {
   list-style: none;
   font-size: 1.1em;
   color: rgb(105, 105, 105);
-  border: 1px solid #ccc;
+ border: 1px solid #ccc; 
   border-top: none;
   position: absolute;
   left: 25%;
   top: calc(50% + 25px);
-  max-height: calc(50% - 15px);
+  height:70px;
   overflow-y: auto;
   background: #fff
 }
@@ -136,13 +176,17 @@ nav {
 }
 
 .filter-select-list {
+  
+  
   cursor: pointer;
   padding: 5px 10px;
 }
 
 .artist-name {
+  
   display: inline-block;
   position: absolute;
+  
 }
 
 .filter-select-list:hover {
@@ -155,3 +199,4 @@ nav {
   background: rgb(55, 55, 55);
   color: #fff
 }
+*/

@@ -38,7 +38,7 @@
       <tbody>
         <tr *ngFor="let album of albums">
           <td >
-            <img (click)="viewAlbum( album )" [src]="album.images | noimage"/>
+            <img class="img-album" (click)="viewAlbum( album )" [src]="album.images | noimage"/>
           </td>
           <td class="styled-tablecontent">{{ album.name }}</td>
 <!--          <td>{{ track.name }}</td>

@@ -46,7 +46,7 @@ export class FavTracksComponent {
             console.log(tracks);
             let arrayToModify = tracks.replace("[","").replace("]","").split(",");
             
-            for(let i=0; i<arrayToModify.length;i++){
+            for(let i=1; i<arrayToModify.length;i++){
                let uri=arrayToModify[i].substring(1,arrayToModify[i].length-1)
                this.tracksArray.push({uri});
             }
