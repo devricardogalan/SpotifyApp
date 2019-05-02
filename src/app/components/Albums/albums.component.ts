@@ -19,46 +19,36 @@ export class AlbumComponent{
     constructor( private router: ActivatedRoute,
                 private spotify: SpotifyService,
                 private  _router: Router){  
-                    debugger;
                     this.router.params.subscribe( params => {
                         this.getAlbum( params['id'] );
                         this.getAlbumTracks( params['id'] );
                     } )
             
-           }   
+    }   
     
-        getAlbum( id:string ){
-            this.spotify.getAlbum( id )
-                .subscribe( album => {
-                    debugger;
-                    this.album=album;
-                    console.log(album);
+    getAlbum( id:string ){
+        this.spotify.getAlbum( id )
+            .subscribe( album => {
+                this.album=album;
                 } )            
-        }   
+    }   
 
-        getAlbumTracks( id:string ){
-            debugger;
-            this.spotify.getAlbumsTracks( id )
-                .subscribe( albumTracks => {
-                    debugger;
+    getAlbumTracks( id:string ){
+        this.spotify.getAlbumsTracks( id )
+            .subscribe( albumTracks => {
                     this.albumTracks=albumTracks;
                     console.log(albumTracks);
-                } )
-        }
- 
-
-        
-        
-
-        addToPlaylist( track : any){
-            debugger;
-          let favoriteTracks: Array<string> = JSON.parse(localStorage.getItem('spotyfav'));
+             } )
+    }
+    
+    addToPlaylist( track : any){
+        let favoriteTracks: Array<string> = JSON.parse(localStorage.getItem('spotyfav'));
             if ( favoriteTracks === null) {
                 localStorage.setItem('spotyfav', JSON.stringify([track.uri]));
             } else {
                 if (!favoriteTracks.includes(track.uri)){
                     favoriteTracks.push(track.uri);
-                   localStorage.setItem('spotyfav', JSON.stringify(favoriteTracks));
+                    localStorage.setItem('spotyfav', JSON.stringify(favoriteTracks));
                 } else {
                    let index = favoriteTracks.indexOf(track.uri);
                     if (index > -1) {
@@ -66,30 +56,26 @@ export class AlbumComponent{
                     }
                     localStorage.setItem('spotyfav', JSON.stringify(favoriteTracks));
                 }
-            }
+    }
             
-            if(favoriteTracks !== null){
-                if(favoriteTracks.length === 0 ){
+        if(favoriteTracks !== null){
+            if(favoriteTracks.length === 0 ){
                     localStorage.removeItem('spotyfav');
                 }
             }
         }
 
-        toggle(array, e){
-            this._toggle=!this._toggle;
-            this.tableSort(array,this._toggle);
-        }
-
-        tableSort(array, toggle){
-            debugger;
-            if(!toggle){
-                array.sort((a,b)=>(a.duration_ms>b.duration_ms)? 1 : -1)
-            }else{
-                array.sort((a,b)=>(a.duration_ms<b.duration_ms)? 1 : -1)
-            }
-            return array;
-        }
-
-        getPlaylist(){
-        }
+    toggle(array, e){
+        this._toggle=!this._toggle;
+        this.tableSort(array,this._toggle);
     }
+
+    tableSort(array, toggle){
+        if(!toggle){
+            array.sort((a,b)=>(a.duration_ms>b.duration_ms)? 1 : -1)
+        }else{
+            array.sort((a,b)=>(a.duration_ms<b.duration_ms)? 1 : -1)
+        }
+        return array;
+    }
+}

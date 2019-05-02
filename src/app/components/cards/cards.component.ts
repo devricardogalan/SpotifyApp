@@ -13,7 +13,6 @@ export class CardsComponent {
     constructor(private router: Router){}
 
     viewArtist(item:any){
-        debugger;
         let artistId;
       
         if ( item.type === 'artist' ) {

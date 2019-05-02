@@ -1,18 +1,10 @@
 <div class="container-card row">
-
-   
 <div (click)="viewArtist( item )" *ngFor="let item of items" class="card column ">
         <div class="card__image-container">
         <img class="card__image" [src]="item.images | noimage" >
         </div>
-
         <div class="card__content">
                 <h1 class="card__title">{{ (item.name.length>27)? (item.name | slice:0:27)+'...':(item.name)}}</h1>
-            <p>
-             <!--   <span *ngFor="let artist of item.artists" class="badge badge-pill badge-primary">
-                    {{ artist.name }}
-                </span> -->
-            </p>
         </div>
     </div>
 

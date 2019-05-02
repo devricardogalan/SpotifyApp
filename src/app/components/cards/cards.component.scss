@@ -90,7 +90,7 @@ img {
   100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
 }
 
-@media only screen and (max-width: 400px) { 
+@media only screen and (width: 400px) { 
   .container-card{
     position:absolute;
     top:90%
@@ -107,7 +107,7 @@ img {
 
   }
 
-  @media only screen and (max-width: 570px) { 
+  @media only screen and (width: 570px) { 
     .container-card{
       position:absolute;
       top:120%;

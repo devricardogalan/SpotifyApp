@@ -9,7 +9,7 @@ import {SpotifyService} from '../services/spotify.services'
     <table class="table">
         <thead>
           <tr>
-            <th class="styled-tableheader">Vista Previa</th>
+            <th class="styled-tableheader"></th>
           </tr>
         </thead>
         <tbody>
@@ -41,25 +41,13 @@ export class FavTracksComponent {
     }
 
           getFavouriteTracks(){
-            debugger;
             let tracks= localStorage.getItem('spotyfav');
-            console.log(tracks);
-            
-            //let arrayToModify = tracks.replace("[","").replace("]","").split(",");
             if(tracks!=null){
               let uri=JSON.parse(localStorage.getItem('spotyfav'));
               for(let i=0; i<uri.length;i++){
                 let uris=uri[i]
               this.tracksArray.push({uris});
-              }
-            /*let arrayToModify=tracks.replace('"', '').replace("[","").replace("]","").replace('"','').split(",");
-
-            for(let i=0; i<arrayToModify.length;i++){
-               let uri=arrayToModify[i].substring(0,arrayToModify[i].length)
-               this.tracksArray.push({uri});*/
             }
-          }
-
-          
-          
+            }
+          }          
 }

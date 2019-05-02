@@ -1,8 +1,6 @@
-<!--<app-loading *ngIf="loadingArtist"></app-loading>-->
 <app-loading *ngIf="loadingArtist"></app-loading>
 <div  *ngIf="!loadingArtist">
   <div >
-   <!-- <img [src]="artista.images | noimage" class="img-thumbnail img-circle" /> -->
    <img [src]="artist.images | noimage" class="img-thumb-size">
   </div>
   <div>
@@ -15,7 +13,6 @@
       </a>
     </p>
   </div>
-
   <div>
     <button class="buttonRegresar" routerLink="/search">
       Regresar
@@ -30,8 +27,6 @@
         <tr>
           <th class="styled-tableheader">Photo</th>
           <th class="styled-tableheader">Album</th>
-<!--          <th>Song</th>
-          <th>Preview</th>  -->
         </tr>
       </thead>
 
@@ -41,17 +36,6 @@
             <img class="img-album" (click)="viewAlbum( album )" [src]="album.images | noimage"/>
           </td>
           <td class="styled-tablecontent">{{ album.name }}</td>
-<!--          <td>{{ track.name }}</td>
-          <td>
-        <iframe
-              [src]="track.uri | domsanitizer"
-              width="320"
-              height="90"
-              frameborder="0"
-              allowtransparency="true"
-              allow="encrypted-media"
-            ></iframe>
-          </td> -->
         </tr>
       </tbody>
     </table>

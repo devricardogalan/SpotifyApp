@@ -1,10 +1,7 @@
 <div class='container header'>
-
     <div id="navigation-bar">
-      <nav class="navbar">
-            
+      <nav class="navbar">  
         <ul class="menu-ul">
-       <!--   <li class="menu-li"><i class="fas fa-sliders-h"></i></li>-->
           <li class="menu-li"><a routerLink="/home">Home</a></li>
           <a href="#" id="menu-icon"></a>
           <section class="filter-wrapper">
@@ -12,11 +9,14 @@
            <input class="input-navbar" [formControl]="queryField" (keyup)='search()' type="text" id="keyword" placeholder="Search for artists..." autofocus/>
              </div>
            <ul class="filter-select">
-             <li  (click)="viewArtist( result )"  *ngFor="let result of results" [ngClass]="this.queryField.value=='' ? 'filter-select-list-notvisible' : 'filter-select-list-visible'" class="filter-select-list"><p  class="artist-name">{{result.name}}</p></li>
+             <li  (click)="viewArtist( result )"  *ngFor="let result of results" 
+             [ngClass]="this.queryField.value=='' ? 'filter-select-list-notvisible' : 'filter-select-list-visible'" 
+             class="filter-select-list">
+               <p  class="artist-name">{{result.name}}</p>
+              </li>
            </ul>
            </section>
         </ul>
-
       </nav>
     </div>
 </div>    

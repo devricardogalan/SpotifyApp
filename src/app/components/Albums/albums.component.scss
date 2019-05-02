@@ -82,7 +82,7 @@ margin-right:15%;
 	top:1px;
 }
 
-@media only screen and (max-width: 400px) { 
+@media only screen and (width: 400px) { 
   .img-thumb-size{
 		margin-top:30%
 	}
@@ -92,11 +92,15 @@ margin-right:15%;
 	}
 
 	}
-	@media only screen and (max-width: 570px) { 
+	@media only screen and (width: 570px) { 
 		.img-thumb-size{
 			margin-top:15%;
 			width:200px;
 			height: 200px;
+		}
+		.table{
+			margin-left:0;
+			margin-right:0;
 		}
 	
 		}
