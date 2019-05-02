@@ -21,15 +21,15 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="styled-tableheader">Canción</th>
-          <th class="styled-tableheader">Vista Previa</th>
+          <th class="styled-tableheader">
+                  Vista Previa
+        </th>
           <th class="styled-tableheader">Like it!</th>
         </tr>
       </thead>
 
       <tbody>
         <tr *ngFor="let track of albumTracks">
-          <td class="styled-tablecontent">{{track.name}}</td>
           <td>
             <iframe
             [src]="track.uri | domsanitizer"

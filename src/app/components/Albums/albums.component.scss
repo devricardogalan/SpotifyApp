@@ -81,3 +81,14 @@ margin-right:15%;
 	position:relative;
 	top:1px;
 }
+
+@media only screen and (max-width: 400px) { 
+  .img-thumb-size{
+		margin-top:30%
+	}
+	.table{
+		margin-right:0px;
+		margin-left:0px;
+	}
+
+  }

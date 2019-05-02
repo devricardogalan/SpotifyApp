@@ -24,6 +24,7 @@ export class SearchBarComponent {
     
 
           search(query){
+            debugger;
             console.log(query);
             this._spotifyService.getArtists( query )
                   .subscribe( (data: any) => {

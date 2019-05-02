@@ -142,3 +142,14 @@ body {
     }
   }
 }
+
+@media only screen and (max-width: 400px) { 
+  .header{
+    display:none;
+  }
+  .container{
+    position:absolute;
+    top:50%;
+  }
+
+  }

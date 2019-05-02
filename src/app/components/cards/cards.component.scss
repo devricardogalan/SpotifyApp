@@ -89,3 +89,20 @@ img {
   50% { opacity: 1; filter: blur(2px); }
   100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
 }
+
+@media only screen and (max-width: 400px) { 
+  .container-card{
+    position:absolute;
+    top:90%
+  }
+
+  .card{
+    right:5%;
+  }
+
+  .card__image{
+    height:280px;
+    width: 280px;
+  }
+
+  }

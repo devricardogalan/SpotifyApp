@@ -17,20 +17,75 @@ import { fromEvent } from 'rxjs';
   providedIn: 'root'
 })
 export class SpotifyService{
+  debugger;
 
+    private str="";
+    private Authorization:string;
+    private clientId= '2e00a8563be0488bb19059dbac471eba';
+
+    
     constructor(private _http: HttpClient){
 
     }
-    
+
+    getTokenFromAPI(token) {
+      debugger;
+      if(localStorage.getItem('authToken')=="" || localStorage.getItem('authToken')=="undefined"){
+      let setToken=localStorage.setItem('authToken', token);
+      }
+      let authToken: string = localStorage.getItem('authToken');
+
+      if ( authToken=="undefined" || authToken=="") {
+        // Get the hash of the url
+const _window: any= window;
+const hash :any = window.location.hash
+.substring(1)
+.split('&')
+.reduce(function (initial, item) {
+  if (item) {
+    var parts = item.split('=');
+    initial[parts[0]] = decodeURIComponent(parts[1]);
+  }
+  return initial;
+}, {});
+window.location.hash = '';
+
+// Set token
+let _token: any = token;
+
+const authEndpoint = 'https://accounts.spotify.com/authorize';
+
+// Replace with your app's client ID, redirect URI and desired scopes
+const clientId = this.clientId;
+const redirectUri = encodeURIComponent('http://localhost:4200');
+const scopes = [
+  'user-read-birthdate',
+  'user-read-email',
+  'user-read-private'
+];
+const response_type= 'token'
+
+// If there is no token, redirect to Spotify authorization
+if (_token=="" || !_token) {
+  _window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=${response_type}&show_dialog=true`;
+}
+//localStorage.setItem('authToken', _token);
+      } else {
+          console.log("Token already received");
+    }
+
+  }
+  
     searchMusic(query: string){
+      //this.getTokenFromAPI();
       debugger;
       const searchUrl=`https://api.spotify.com/v1/${query}`;
-
+      let Authorization=localStorage.getItem('authToken');
       
   
       const headers=new HttpHeaders({
         Authorization:
-        "Bearer BQC5ocsojc8nTL54I2NP9lrkeuqoY8Vcxh0-NCb8JUZZvFw8f9KFl8w2EkPSpXAOla3ub1FrO4gK-ZeHiPM"
+        `Bearer ${Authorization}`
       });
 
       return this._http.get(searchUrl, {headers});

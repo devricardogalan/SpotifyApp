@@ -53,7 +53,7 @@ nav {
 
 
 .navbar{
-  height:12%;
+  height:70px;
 }
 
 
@@ -101,102 +101,31 @@ nav {
   background-color: #c6c6c6;
 }
 
-/*
-.filter-wrapper,
-.keyword-wrapper {
- display: flex;
-  justify-content: center;
-}
+/*-------------------- responsive--------------- */
 
-.filter-wrapper {
-  min-height: 100%;
-  flex-flow: column wrap;
-  position: relative;
-}
+@media only screen and (max-width: 770px) { 
 
-.keyword-wrapper {
-  width: 100%;
-  position: relative;
-}
+ 
+    }
+    
+  @media only screen and (max-width: 400px) { 
+    .input-navbar{
+      position: absolute;
+      top: 12%;
+      right: 2%;
+      height: 30px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border: 1px solid gray;
+      border-left: 0;
+      padding: 10px;
+    
+     } 
 
-#keyword {
-  border: 1px solid #ccc;
-  padding: 10px;
-  font: 1.5em 'Arimo', sans-serif;
-  width: 50%;
-  outline: none;
-  transition: border 0.5s ease-in-out
-}
-
-#keyword:focus {
-  border-color : rgba(81, 203, 238, 1);;
-}
-
-#keyword-button {
-  position: absolute;
-  right: 26%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.7em;
-  color: #8DB9ED
-}
-
-#keyword-button:hover {
-  color: #ccc
-}
-
-.filter-select {
-  width: 50%;
-  list-style: none;
-  font-size: 1.1em;
-  color: rgb(105, 105, 105);
- border: 1px solid #ccc; 
-  border-top: none;
-  position: absolute;
-  left: 25%;
-  top: calc(50% + 25px);
-  height:70px;
-  overflow-y: auto;
-  background: #fff
-}
-.filter-select-list img {
-  margin-right: 30px;
-}
-
-.tags {
-  font-size: 12px;
-  font-style: italic;
-  color: #c6c6c6;
-  margin-right: 10px;
-  position: relative;
-  top: -10px;
-}
-.filter-select-list:hover .tags {
-  color: #fff;
-}
-
-.filter-select-list {
+     .menu-li{
+       position: absolute;
+       left:10%;
+       padding-right: 10px;
+     }
   
-  
-  cursor: pointer;
-  padding: 5px 10px;
-}
-
-.artist-name {
-  
-  display: inline-block;
-  position: absolute;
-  
-}
-
-.filter-select-list:hover {
-  background: 	#C0C0C0;
-  color: #fff
-}
-
-.list-highlight,
-.list-highlight:hover {
-  background: rgb(55, 55, 55);
-  color: #fff
-}
-*/
+  }

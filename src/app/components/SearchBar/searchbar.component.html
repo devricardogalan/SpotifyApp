@@ -14,11 +14,11 @@
   <div class="search"></div>
 </div>
 
-<app-favtracks></app-favtracks>
+
 
 
 <app-loading class="m-5" *ngIf="loading"></app-loading>
-
+<app-favtracks ></app-favtracks>
 
 
 <app-cards *ngIf="!loading" [items]="artists"></app-cards>

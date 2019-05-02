@@ -22,14 +22,29 @@ export class NavbarComponent implements OnInit {
     queryField: FormControl = new FormControl();
     artists: any[]=[];
     loading: boolean;
+    isToken: boolean=false;
+    token: string;
     constructor(private _spotifyService:SpotifyService, private router:Router){
 
     }
     ngOnInit(){
       debugger;
-
+      let token=window.location.hash.substring(14,177);
+      this._spotifyService.getTokenFromAPI(token);
+/*      if(this.isToken==false){
+        this._spotifyService.getTokenFromAPI();
+      if(window.location.hash.substring(1,13)=="access_token"){
+        this.token=window.location.hash.substring(14,177);
+        this.isToken=true;
+      }
+      */
      
     }
+
+    getAuth(){
+
+      
+  }
 
     viewArtist(item:any){
       debugger;
