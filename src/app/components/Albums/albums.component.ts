@@ -15,6 +15,7 @@ export class AlbumComponent{
     album: any={};
     albumTracks: any={};
     playlist: any [] = [];
+    _toggle: boolean= false;
     constructor( private router: ActivatedRoute,
                 private spotify: SpotifyService,
                 private  _router: Router){  
@@ -73,6 +74,21 @@ export class AlbumComponent{
                     localStorage.removeItem('spotyfav');
                 }
             }
+        }
+
+        toggle(array, e){
+            this._toggle=!this._toggle;
+            this.tableSort(array,this._toggle);
+        }
+
+        tableSort(array, toggle){
+            debugger;
+            if(!toggle){
+                array.sort((a,b)=>(a.duration_ms>b.duration_ms)? 1 : -1)
+            }else{
+                array.sort((a,b)=>(a.duration_ms<b.duration_ms)? 1 : -1)
+            }
+            return array;
         }
 
         getPlaylist(){
