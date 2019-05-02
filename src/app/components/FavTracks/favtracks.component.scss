@@ -7,3 +7,14 @@
     max-height: 300px;
 
 }
+
+@media only screen and (max-width: 570px) { 
+    .table{
+        position: absolute;
+        top: 15%;
+        right: 1%;
+        display: block;
+        overflow-y: scroll;
+        max-height: 300px;     
+    }
+    }

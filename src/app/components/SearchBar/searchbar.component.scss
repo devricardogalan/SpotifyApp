@@ -143,7 +143,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 400px) { 
+@media only screen and (width: 400px) { 
   .header{
     display:none;
   }
@@ -153,3 +153,15 @@ body {
   }
 
   }
+
+  @media only screen and (width: 570px) { 
+    .header{
+      display:none;
+    }
+    .container{
+      position:absolute;
+      top:110%;
+    }
+  
+    }
+  

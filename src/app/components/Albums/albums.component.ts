@@ -52,14 +52,13 @@ export class AlbumComponent{
 
         addToPlaylist( track : any){
             debugger;
-            let favoriteTracks: Array<string> = JSON.parse(localStorage.getItem('spotyfav'));
-
+          let favoriteTracks: Array<string> = JSON.parse(localStorage.getItem('spotyfav'));
             if ( favoriteTracks === null) {
                 localStorage.setItem('spotyfav', JSON.stringify([track.uri]));
             } else {
                 if (!favoriteTracks.includes(track.uri)){
                     favoriteTracks.push(track.uri);
-                    localStorage.setItem('spotyfav', JSON.stringify(favoriteTracks));
+                   localStorage.setItem('spotyfav', JSON.stringify(favoriteTracks));
                 } else {
                    let index = favoriteTracks.indexOf(track.uri);
                     if (index > -1) {

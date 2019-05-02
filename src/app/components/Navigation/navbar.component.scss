@@ -63,12 +63,12 @@ nav {
   padding:0;
   overflow:hidden;
   overflow-y: auto;
-  max-height:70px;
+  max-height:130px;
   position:absolute;
-  right:3.5%;
+  right:2%;
   top:85%;
-  max-width:169px;
-
+  width:163px;
+  font-family: "Fira Sans", sans-serif;
 }
 
 .artist-name{
@@ -86,7 +86,8 @@ nav {
   border-bottom-right-radius: 20px;
   border:1px solid gray;
   border-left:0;
-  padding:10px
+  padding:10px;
+  font-family: "Fira Sans", sans-serif;
 }
 
 .filter-select-list-notvisible{

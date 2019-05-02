@@ -30,7 +30,7 @@ export class SpotifyService{
 
     getTokenFromAPI(token) {
       debugger;
-      if(localStorage.getItem('authToken')=="" || localStorage.getItem('authToken')=="undefined"){
+      if(localStorage.getItem('authToken')=="" || localStorage.getItem('authToken')=="undefined" || localStorage.getItem('authToken')==null){
       let setToken=localStorage.setItem('authToken', token);
       }
       let authToken: string = localStorage.getItem('authToken');

@@ -106,3 +106,21 @@ img {
   }
 
   }
+
+  @media only screen and (max-width: 570px) { 
+    .container-card{
+      position:absolute;
+      top:120%;
+      left:20%;
+    }
+  
+    .card{
+      right:5%;
+    }
+  
+    .card__image{
+      height:180px;
+      width: 180px;
+    }
+  
+    }

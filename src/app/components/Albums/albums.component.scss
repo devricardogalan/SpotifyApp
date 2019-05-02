@@ -91,4 +91,12 @@ margin-right:15%;
 		margin-left:0px;
 	}
 
-  }
+	}
+	@media only screen and (max-width: 570px) { 
+		.img-thumb-size{
+			margin-top:15%;
+			width:200px;
+			height: 200px;
+		}
+	
+		}

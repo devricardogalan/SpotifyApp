@@ -16,7 +16,7 @@ import {SpotifyService} from '../services/spotify.services'
           <tr *ngFor="let track of tracksArray">
             <td>
             <iframe
-              [src]="track.uri | domsanitizer"
+              [src]="track.uris | domsanitizer"
               width="320"
               height="90"
               frameborder="0"
@@ -44,13 +44,22 @@ export class FavTracksComponent {
             debugger;
             let tracks= localStorage.getItem('spotyfav');
             console.log(tracks);
-            let arrayToModify = tracks.replace("[","").replace("]","").split(",");
             
-            for(let i=1; i<arrayToModify.length;i++){
-               let uri=arrayToModify[i].substring(1,arrayToModify[i].length-1)
-               this.tracksArray.push({uri});
-            }
+            //let arrayToModify = tracks.replace("[","").replace("]","").split(",");
+            if(tracks!=null){
+              let uri=JSON.parse(localStorage.getItem('spotyfav'));
+              for(let i=0; i<uri.length;i++){
+                let uris=uri[i]
+              this.tracksArray.push({uris});
+              }
+            /*let arrayToModify=tracks.replace('"', '').replace("[","").replace("]","").replace('"','').split(",");
 
+            for(let i=0; i<arrayToModify.length;i++){
+               let uri=arrayToModify[i].substring(0,arrayToModify[i].length)
+               this.tracksArray.push({uri});*/
+            }
           }
+
+          
           
 }
