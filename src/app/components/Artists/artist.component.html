@@ -32,8 +32,10 @@
 
       <tbody>
         <tr *ngFor="let album of albums">
-          <td >
+          <td>
+            <div class="pointer-album">
             <img class="img-album" (click)="viewAlbum( album )" [src]="album.images | noimage"/>
+            </div>  
           </td>
           <td class="styled-tablecontent">{{ album.name }}</td>
         </tr>

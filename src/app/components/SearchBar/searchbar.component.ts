@@ -27,13 +27,10 @@ export class SearchBarComponent {
 
     search(query){
       debugger;
-      if(query.includes('%20')){
-          query.replace('%20', ' ');
-      }
-      this._spotifyService.getArtists( query )
+      this._spotifyService.getArtists( decodeURIComponent(query) )
         .subscribe( (data: any) => {
             this.artists = data;
             });
-            this.router.navigate([ '/search', query  ]);    
+            this.router.navigate([ '/search', decodeURIComponent(query)  ]);    
     }
 }

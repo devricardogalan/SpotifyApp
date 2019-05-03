@@ -32,18 +32,26 @@ img {
   height: 200vh;
 }
 
+.card__image-container{
+  cursor:pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}
+
 .card {
   position: relative;
   background: #333;
   width: 400px;
-  //height: 75vh;
   height:70vh;
   border-radius: 6px;
   padding: 2rem;
   color: #aaa;
   box-shadow: 0 .25rem .25rem rgba(0,0,0,0.2),
     0 0 1rem rgba(0,0,0,0.2);
- // overflow: hidden;
   
   &__image-container {
     margin: -2rem -2rem 1rem -2rem;

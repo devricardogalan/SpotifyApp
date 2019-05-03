@@ -29,12 +29,20 @@ nav {
       display: inline;
       font-family: "Fira Sans", sans-serif;
       font-size: 17px;
+      cursor:pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       a {
         color: #f2f2f2;
         text-decoration: none;
         padding: 14px;
+
         &:hover {
-          background-color: #556889;
+         // background-color: #556889;
         }
       }
       i{
@@ -98,6 +106,7 @@ nav {
 
 .filter-select-list:hover {
   background-color: #c6c6c6;
+  cursor:pointer;
 }
 
 
