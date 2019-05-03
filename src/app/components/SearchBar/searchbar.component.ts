@@ -19,16 +19,17 @@ export class SearchBarComponent {
     tracks: any []=[];
 
     constructor(private _spotifyService:SpotifyService, private router: Router){
-        if(location.hash.length>9){
+      this.search("");  
+      if(location.hash.length>9){
             this.search(location.hash.substring(9,location.hash.length));
         }
-        this.search("");
+        
     }
 
     
 
     search(query){
-        debugger;
+      debugger;
       if(query==""){
         this.router.navigate([ '/search', decodeURIComponent(query)  ]);  
       }else{ 

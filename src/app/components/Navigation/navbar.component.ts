@@ -29,7 +29,6 @@ export class NavbarComponent implements OnInit {
 
     }
     ngOnInit(){
-      debugger;
       if(window.location.hash.length>100){
         let token=window.location.hash.substring(14,177);
         this._spotifyService.getTokenFromAPI(token);
