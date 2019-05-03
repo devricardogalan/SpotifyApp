@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'artist/:id',
     component: ArtistComponent
   },
+  { 
+    path: 'search/:query', 
+    component: SearchBarComponent 
+  },
   {
     path: 'album/:id',
     component: AlbumComponent

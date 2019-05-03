@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {SpotifyService} from '../services/spotify.services'
-
+import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
@@ -17,15 +17,23 @@ export class SearchBarComponent {
     loading: boolean;
     tracks: any []=[];
 
-    constructor(private _spotifyService:SpotifyService){
+    constructor(private _spotifyService:SpotifyService, private router: Router){
+        if(location.hash.length>9){
+            this.search(location.hash.substring(9,location.hash.length));
+        }
     }
 
     
 
     search(query){
+      debugger;
+      if(query.includes('%20')){
+          query.replace('%20', ' ');
+      }
       this._spotifyService.getArtists( query )
         .subscribe( (data: any) => {
             this.artists = data;
             });
+            this.router.navigate([ '/search', query  ]);    
     }
 }

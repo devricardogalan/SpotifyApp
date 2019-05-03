@@ -8,6 +8,7 @@ export const ROUTES: Routes = [
     { path: 'home', component: SearchBarComponent },
     { path: 'artist/:id', component: ArtistComponent },
     { path: 'album/:id', component: AlbumComponent },
+    { path: 'search/:query', component: SearchBarComponent },
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
