@@ -29,7 +29,6 @@ export class SearchBarComponent {
     
 
     search(query){
-      debugger;
       if(query==""){
         this.router.navigate([ '/search', decodeURIComponent(query)  ]);  
       }else{ 
