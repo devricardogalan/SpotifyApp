@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
     loading: boolean;
     isToken: boolean=false;
     token: string;
+    toggle:boolean =false;
     constructor(private _spotifyService:SpotifyService, private router:Router){
 
     }
@@ -41,7 +42,7 @@ export class NavbarComponent implements OnInit {
 
     viewArtist(item:any){
       let artistId;
-    
+      this.toggle=true;
       if ( item.type === 'artist' ) {
         artistId = item.id;
       } else {
@@ -53,13 +54,14 @@ export class NavbarComponent implements OnInit {
     }
 
     search(){
+      this.toggle=false;
       this.queryField.valueChanges
         .pipe(debounceTime(200),
         //Emits a value from the source Observable only after a particular time span has passed without another source emission
         distinctUntilChanged(),
         //distinctUntilChanged uses === comparison by default, object references must match!
         switchMap((query) =>  this._spotifyService.getArtists(query)))
-        .subscribe(  result => { if (result.status === 400) { return; } else { this.results = result }
+        .subscribe(  result => { if (result.status === 400) { console.log('nothing found') } else { this.results = result }
         });
   }
 }

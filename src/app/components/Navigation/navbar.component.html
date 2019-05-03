@@ -10,7 +10,7 @@
              </div>
            <ul class="filter-select">
              <li  (click)="viewArtist( result )"  *ngFor="let result of results" 
-             [ngClass]="this.queryField.value=='' ? 'filter-select-list-notvisible' : 'filter-select-list-visible'" 
+             [ngClass]="this.queryField.value=='' || toggle==true ? 'filter-select-list-notvisible' : 'filter-select-list-visible'" 
              class="filter-select-list">
                <p  class="artist-name">{{result.name}}</p>
               </li>
