@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import {SpotifyService} from '../services/spotify.services'
 import { Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
     templateUrl: './searchbar.component.html',
     styleUrls: ['./searchbar.component.scss'],
     providers: [SpotifyService]
+    
 })
 
 export class SearchBarComponent {
@@ -21,16 +22,21 @@ export class SearchBarComponent {
         if(location.hash.length>9){
             this.search(location.hash.substring(9,location.hash.length));
         }
+        this.search("");
     }
 
     
 
     search(query){
-      debugger;
+        debugger;
+      if(query==""){
+        this.router.navigate([ '/search', decodeURIComponent(query)  ]);  
+      }else{ 
       this._spotifyService.getArtists( decodeURIComponent(query) )
         .subscribe( (data: any) => {
             this.artists = data;
             });
-            this.router.navigate([ '/search', decodeURIComponent(query)  ]);    
+            this.router.navigate([ '/search', decodeURIComponent(query)  ]);
+      }
     }
 }
